@@ -1,0 +1,66 @@
+load('measurementValuesGroup4.mat')
+close all;
+
+AreaDev = 0.0004;
+
+siL = figure;
+siJd = siDark.rrentA(80:150,1)/AreaDev;
+siJl = siLight.rrentA(80:150,1)/AreaDev;
+
+plot(siLight.VoltageVCu(80:150,1),siJl);
+hold on
+ylabel('current density [A/m^2]');
+xlabel('voltage [V]');
+title('Silicon control cell');
+plot(siDark.VoltageVCu(80:150,1),siJd);
+siPow = abs(siLight.VoltageVCu(80:150,1).*siJl);
+
+plot(siLight.VoltageVCu(80:150,1),siPow);
+legend('silicon light','silicon dark','silicon power [AV / m^2]')
+hold off
+
+p1p = figure;
+p1Jd = perov1dark.rrentA(80:90,1)/AreaDev;
+p1Jl = perov1light.rrentA(80:90,1)/AreaDev;
+
+plot(perov1light.VoltageVCu(80:90,1),p1Jl);
+hold on
+
+ylabel('current density [A/m^2]');
+xlabel('voltage [V]');
+title('perovskite cell 1');
+plot(perov1dark.VoltageVCu(80:90,1),p1Jd);
+p1Pow = abs(perov1light.VoltageVCu(80:90,1).*p1Jl);
+plot(perov1light.VoltageVCu(80:90,1),p1Pow);
+legend('perovskite cell 1 light','perovskite cell 1 dark','perovskite cell 1 power [AV / m^2]');
+hold off
+
+
+p2p = figure;
+p2Jd = perov2dark.rrentA(80:90,1)/AreaDev;
+p2Jl = perov2light.rrentA(80:90,1)/AreaDev;
+plot(perov2light.VoltageVCu(80:90,1),p2Jl);
+hold on
+ylabel('current density [A/m^2]');
+xlabel('voltage [V]');
+title('perovskite cell 2');
+plot(perov2dark.VoltageVCu(80:90,1),p2Jd);
+p2Pow = abs(perov2light.VoltageVCu(80:90,1).*p2Jl);
+plot(perov2light.VoltageVCu(80:90,1),p2Pow);
+legend('perovskite cell 2 light','perovskite cell 2 dark','perovskite cell 2 power [AV/m^2]');
+hold off
+
+p3p = figure;
+p3Jd = perov3dark.rrentA(80:95,1)/AreaDev;
+p3Jl = perov3light.rrentA(80:95,1)/AreaDev;
+
+plot(perov3light.VoltageVCu(80:95,1),p3Jl);
+hold on
+ylabel('current density [A/m^2]');
+xlabel('voltage [V]');
+title('perovskite cell 3');
+plot(perov3dark.VoltageVCu(80:95,1),p3Jd);
+p3Pow = abs(perov3light.VoltageVCu(80:95,1).*p3Jl);
+plot(perov3light.VoltageVCu(80:95,1),p3Pow);
+legend('perovskite cell 3 light','perovskite cell 3 dark','perovskite cell 3 power [AV/m^2]');
+hold off
